@@ -1,4 +1,5 @@
 ﻿using December2023.Utilities;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System;
@@ -13,12 +14,19 @@ namespace December2023.Pages
     {
         public void GoToTMPage(IWebDriver driver)
         {
-            //Navigate to Time & Material module (Click on Administration -> Time & Material link)
-            IWebElement administrationDropdown = driver.FindElement(By.XPath("/html/body/div[3]/div/div/ul/li[5]/a"));
-            administrationDropdown.Click();
+            try
+            {
+                //Navigate to Time & Material module (Click on Administration -> Time & Material link)
+                IWebElement administrationDropdown = driver.FindElement(By.XPath("/html/test/a"));
+                administrationDropdown.Click();
 
-            IWebElement tmOption = driver.FindElement(By.XPath("//a[contains(text(),'Time & Materials')]"));
-            tmOption.Click();
+                IWebElement tmOption = driver.FindElement(By.XPath("//a[contains(text(),'Time & Materials')]"));
+                tmOption.Click();
+            }
+            catch (Exception exception)
+            {
+                Assert.Fail("Turnup portal Home page not displayed " + exception.Message);
+            }
         }
 
         public void verifyLoggedInUser(IWebDriver driver)
