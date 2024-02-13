@@ -17,7 +17,7 @@ namespace December2023.Pages
             try
             {
                 //Navigate to Time & Material module (Click on Administration -> Time & Material link)
-                IWebElement administrationDropdown = driver.FindElement(By.XPath("/html/test/a"));
+                IWebElement administrationDropdown = driver.FindElement(By.XPath("//a[contains(text(),'Administration')]"));
                 administrationDropdown.Click();
 
                 IWebElement tmOption = driver.FindElement(By.XPath("//a[contains(text(),'Time & Materials')]"));

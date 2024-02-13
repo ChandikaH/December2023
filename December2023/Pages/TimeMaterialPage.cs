@@ -44,13 +44,13 @@ namespace December2023.Pages
             saveButton.Click();
 
             Wait.WaitToBeClickable(driver, "XPath", "//*[@id=\"tmsGrid\"]/div[4]/a[4]/span", 5);
-
+            Thread.Sleep(1000);
             //Check if a new time record has been created successfully
             IWebElement goToLastPageButton = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[4]/a[4]/span"));
             goToLastPageButton.Click();
             Wait.WaitToBeClickable(driver, "XPath", "//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[1]", 3);
 
-
+            Thread.Sleep(1000);
             IWebElement newRecordData = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[1]"));
             Assert.That(newRecordData.Text.Equals("January2024"), "Time record has not been created");
         }
