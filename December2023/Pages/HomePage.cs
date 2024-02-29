@@ -25,7 +25,7 @@ namespace December2023.Pages
 
         public void verifyLoggedInUser(IWebDriver driver)
         {
-            Wait.WaitToBeVisible(driver, "XPath", "//*[@id=\"logoutForm\"]/ul/li/a", 5);
+            WaitUtils.WaitToBeVisible(driver, "XPath", "//*[@id=\"logoutForm\"]/ul/li/a", 5);
             //Check if user has logged in successfully
             IWebElement helloHari = driver.FindElement(By.XPath("//*[@id=\"logoutForm\"]/ul/li/a"));
 
