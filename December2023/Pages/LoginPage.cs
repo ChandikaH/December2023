@@ -11,7 +11,7 @@ namespace December2023.Pages
         private readonly By loginButtonLocator = By.XPath("//*[@id='loginForm']/form/div[3]/input[1]");
         IWebElement loginButton;
 
-        public void LoginActions(IWebDriver driver)
+        public void LoginActions(IWebDriver driver, string username, string password)
         {
             //Maximize the browser
             driver.Manage().Window.Maximize();

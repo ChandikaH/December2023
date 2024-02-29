@@ -17,12 +17,35 @@ namespace December2023.Tests
 
             //Login page object initialization and definition
             LoginPage loginPageObj = new LoginPage();
-            loginPageObj.LoginActions(driver);
+            loginPageObj.LoginActions(driver, "hari", "123123");
 
             //Home page object initialization and definition
             HomePage homePageObj = new HomePage();
             homePageObj.verifyLoggedInUser(driver);
             homePageObj.GoToTMPage(driver);
+        }
+
+        // Data provider method
+        private static object[] TestData()
+        {
+            return new object[]
+            {
+            new object[] { "hari", "123123" },
+            new object[] { "username2", "password2" },
+                // Add more test data as needed
+            };
+        }
+
+        [Test, TestCaseSource(nameof(TestData)), Description("This test create a new Time record with valid data")]
+        public void TestLoginToTurnUpPortal(string username, string password)
+        {
+            //Login page object initialization and definition
+            LoginPage loginPageObj = new LoginPage();
+            loginPageObj.LoginActions(driver, username, password);
+
+            //Home page object initialization and definition
+            HomePage homePageObj = new HomePage();
+            homePageObj.verifyLoggedInUser(driver);
         }
 
         //Test 01
